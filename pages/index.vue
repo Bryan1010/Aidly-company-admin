@@ -1,12 +1,13 @@
 <template>
-    
+
 </template>
 
 <script>
     export default {
         mounted()
         {
-          this.$router.push('/dashboard')
+          // TODO: Change to login if not logged in!
+          this.$router.push('/login')
         }
     }
 </script>

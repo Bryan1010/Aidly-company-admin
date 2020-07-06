@@ -7,8 +7,8 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="../static/m.png" alt="Vue Material Admin" width="120" height="120">
-                  <h1 class="flex my-4 primary--text">Material Admin Template</h1>
+                  <img src="../static/m.png" alt="Aidly Company Admin" width="120" height="120">
+                  <h1 class="flex my-4 primary--text">Login</h1>
                 </div>
                 <v-form>
                   <v-text-field append-icon="person" name="login" label="Login" type="text"
@@ -18,16 +18,6 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn icon>
-                  <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="red">fa fa-google fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
-                </v-btn>
-                <v-spacer></v-spacer>
                 <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
               </v-card-actions>
             </v-card>
@@ -53,6 +43,7 @@
       login() {
         this.loading = true;
         setTimeout(() => {
+          // TODO: direct to dashboard when signed in, else display error
           this.$router.push('/dashboard');
         }, 1000);
       }
