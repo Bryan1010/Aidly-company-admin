@@ -7,41 +7,41 @@ const Menu = [
     name: 'Dashboard',
     href: '/dashboard'
   },
-  {
-    title: 'Chat',
-    group: 'apps',
-    icon: 'chat_bubble',
-    target: '_blank',
-    name: 'Chat',
-    href: '/chat/messaging'
-  },
-  {
-    title: 'Inbox',
-    group: 'apps',
-    name: 'Mail',
-    target: '_blank',
-    icon: 'email',
-    href: '/mail/all'
-  },
-  {
-    title: 'Media',
-    group: 'apps',
-    name: 'Media',
-    icon: 'perm_media',
-    href: '/media'
-  },
-  {
-    title: 'Widgets',
-    group: 'widgets',
-    component: 'widgets',
-    icon: 'widgets',
-    items: [
-      {name: 'social', title: 'Social', href: '/widgets/social'},
-      {name: 'statistic', title: 'Statistic', badge: 'new', href: '/widgets/statistic'},
-      {name: 'chart', title: 'Chart', href: '/widgets/chart'},
-      {name: 'list', title: 'List', href: '/widgets/list'},
-    ]
-  },
+  // {
+  //   title: 'Chat',
+  //   group: 'apps',
+  //   icon: 'chat_bubble',
+  //   target: '_blank',
+  //   name: 'Chat',
+  //   href: '/chat/messaging'
+  // },
+  // {
+  //   title: 'Inbox',
+  //   group: 'apps',
+  //   name: 'Mail',
+  //   target: '_blank',
+  //   icon: 'email',
+  //   href: '/mail/all'
+  // },
+  // {
+  //   title: 'Media',
+  //   group: 'apps',
+  //   name: 'Media',
+  //   icon: 'perm_media',
+  //   href: '/media'
+  // },
+  // {
+  //   title: 'Widgets',
+  //   group: 'widgets',
+  //   component: 'widgets',
+  //   icon: 'widgets',
+  //   items: [
+  //     {name: 'social', title: 'Social', href: '/widgets/social'},
+  //     {name: 'statistic', title: 'Statistic', badge: 'new', href: '/widgets/statistic'},
+  //     {name: 'chart', title: 'Chart', href: '/widgets/chart'},
+  //     {name: 'list', title: 'List', href: '/widgets/list'},
+  //   ]
+  // },
   {header: 'UI Elements'},
   {
     title: 'General',
