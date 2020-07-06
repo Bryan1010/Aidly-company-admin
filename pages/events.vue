@@ -1,0 +1,18 @@
+<template>
+  <v-container grid-list-xl fluid>
+    <h4>
+      <i class="fa fa-smile-o"></i>
+      This is the events page.</h4>
+  </v-container>
+</template>
+
+<script>
+  export default {
+    layout: "dashboard",
+
+  }
+</script>
+
+<style scoped>
+
+</style>

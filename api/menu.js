@@ -19,7 +19,7 @@ const Menu = [
     group: 'apps',
     icon: 'group',
     name: 'Volunteers',
-    href: '/Volunteers'
+    href: '/volunteers'
   },
   {
     title: 'Chat',
