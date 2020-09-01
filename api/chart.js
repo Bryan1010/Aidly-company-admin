@@ -11,8 +11,7 @@ const monthVisitData = shortMonth.map(m => {
   };
 });
 
-const campaignData = [
-  {
+const campaignData = [{
     value: 335,
     name: 'Website'
   },
@@ -33,26 +32,25 @@ const campaignData = [
     name: 'Search'
   }
 ];
-const locationData = [
-  {
+const locationData = [{
     value: 50,
-    name: 'China'
+    name: '19605'
   },
   {
     value: 35,
-    name: 'USA'
+    name: '19609'
   },
   {
     value: 25,
-    name: 'EU'
+    name: '19607'
   },
   {
     value: 10,
-    name: 'Russia'
+    name: '19606'
   },
   {
     value: 10,
-    name: 'Other'
+    name: '19610'
   }
 ];
 
@@ -63,7 +61,7 @@ const StackData = StackMainData.map((item, key) => {
     'max': 500,
     'sales': item,
   };
-});   
+});
 const SinData = range(1, 12).map(i => {
   return {
     'cate': 'Cat' + i,

@@ -21,29 +21,29 @@ const Menu = [{
     icon: 'group',
     name: 'Volunteers',
     href: '/volunteers'
-  },
-  {
-    title: 'Chat',
-    group: 'apps',
-    icon: 'chat_bubble',
-    target: '_blank',
-    name: 'Chat',
-    href: '/chat/messaging'
-  },
+  }
+  // {
+  //   title: 'Chat',
+  //   group: 'apps',
+  //   icon: 'chat_bubble',
+  //   target: '_blank',
+  //   name: 'Chat',
+  //   href: '/chat/messaging'
+  // },
 
 
-  {
-    title: 'Login',
-    group: 'extra',
-    icon: 'list',
-    href: '/login'
-  },
-  {
-    title: 'Empty',
-    group: 'extra',
-    icon: 'insert_drive_file',
-    href: '/empty'
-  },
+  // {
+  //   title: 'Login',
+  //   group: 'extra',
+  //   icon: 'list',
+  //   href: '/login'
+  // },
+  // {
+  //   title: 'Empty',
+  //   group: 'extra',
+  //   icon: 'insert_drive_file',
+  //   href: '/empty'
+  // },
 ];
 // reorder menu
 Menu.forEach((item) => {

@@ -19,7 +19,6 @@ export default {
         first_name: "bryan",
         last_name: "cruz",
         mission_statement: "",
-
         zip: "00959",
       },
     ],

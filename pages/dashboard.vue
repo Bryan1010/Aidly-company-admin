@@ -4,41 +4,13 @@
       <v-layout row wrap>
         <!-- mini statistic start -->
         <v-flex lg6 sm6 xs12>
-          <mini-statistic icon="fa fa-users" title="50" sub-title="matches" color="indigo"></mini-statistic>
+          <mini-statistic icon="fa fa-users" title="100" sub-title="matches" color="indigo"></mini-statistic>
         </v-flex>
 
         <!-- mini statistic  end -->
-        <v-flex lg8 sm12 xs12>
-          <v-widget title="Site Traffic" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
-            </v-btn>
-            <div slot="widget-content">
-              <e-chart
-                :path-option="[
-                  ['dataset.source', siteTrafficData],
-                  ['color', [color.lightBlue.base, color.green.lighten1]],
-                  ['legend.show', true],
-                  ['xAxis.axisLabel.show', true],
-                  ['yAxis.axisLabel.show', true],
-                  ['grid.left', '2%'],
-                  ['grid.bottom', '5%'],
-                  ['grid.right', '3%'],
-                  ['series[0].type', 'bar'],
-                  ['series[0].areaStyle', {}],
-                  ['series[0].smooth', true],
-                  ['series[1].smooth', true],
-                  ['series[1].type', 'bar'],
-                  ['series[1].areaStyle', {}],
-                ]"
-                height="400px"
-                width="85%"
-              ></e-chart>
-            </div>
-          </v-widget>
-        </v-flex>
+
         <v-flex lg4 sm12 xs12>
-          <v-widget title="Top Location" content-bg="white">
+          <v-widget title="Top Locations" content-bg="white">
             <div slot="widget-content">
               <e-chart
                 :path-option="[
@@ -58,10 +30,8 @@
           </v-widget>
         </v-flex>
         <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
-          <profile-card></profile-card>
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
+
+        <!-- <v-flex lg4 sm12 xs12>
           <box-chart
             card-color="indigo"
             title="Trending"
@@ -82,79 +52,8 @@
             gradient
             type="area"
           ></box-chart>
-        </v-flex>
+        </v-flex>-->
         <!-- statistic section -->
-        <v-flex lg4 sm12 xs12>
-          <linear-statistic
-            title="Sales"
-            sub-title="Sales increase"
-            icon="trending_up"
-            color="success"
-            :value="15"
-          ></linear-statistic>
-          <linear-statistic
-            class="my-4"
-            title="Orders"
-            sub-title="Increase"
-            icon="trending_up"
-            color="pink"
-            :value="30"
-          ></linear-statistic>
-          <linear-statistic
-            class="my-4"
-            title="Revenue"
-            sub-title="Revenue increase"
-            icon="trending_up"
-            color="primary"
-            :value="50"
-          ></linear-statistic>
-          <linear-statistic
-            class="mt-4"
-            title="Cost"
-            sub-title="Cost reduce"
-            icon="trending_down"
-            color="orange"
-            :value="25"
-          ></linear-statistic>
-        </v-flex>
-        <!-- Circle statistic -->
-        <v-flex lg4 sm12 xs12 v-for="(item,index) in trending" :key="'c-trending'+index">
-          <circle-statistic
-            :title="item.subheading"
-            :sub-title="item.headline"
-            :caption="item.caption"
-            :icon="item.icon.label"
-            :color="item.linear.color"
-            :value="item.linear.value"
-          ></circle-statistic>
-        </v-flex>
-        <!-- acitivity/chat widget -->
-        <v-flex lg6 sm12 xs12>
-          <chat-window height="308px"></chat-window>
-        </v-flex>
-        <v-flex lg6 sm12 xs12>
-          <v-widget title="Activities" contentBg="white">
-            <div slot="widget-content">
-              <ol class="timeline timeline-activity timeline-point-sm timeline-content-right">
-                <li class="timeline-block" v-for="(item, index) in activity" :key="index">
-                  <div class="timeline-point">
-                    <v-circle dot large :color="item.color"></v-circle>
-                  </div>
-                  <div class="timeline-content">
-                    <time datetime="2018" class="subheading">{{item.timeString}}</time>
-                    <div class="py-2 text--secondary" v-html="item.text"></div>
-                  </div>
-                </li>
-              </ol>
-            </div>
-          </v-widget>
-        </v-flex>
-        <v-flex lg7 sm12 xs12>
-          <plain-table></plain-table>
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <plain-table-order></plain-table-order>
-        </v-flex>
       </v-layout>
     </v-container>
   </div>
