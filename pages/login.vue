@@ -7,14 +7,25 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="../static/m.png" alt="Aidly Company Admin" width="120" height="120">
-                  <h1 class="flex my-4 primary--text">Login</h1>
+                  <h1 class="flex my-4 primary--text text-center">Welcome to Aidly!</h1>
+                  <h2 class="flex my-4 primary--text">Login</h2>
                 </div>
                 <v-form>
-                  <v-text-field append-icon="person" name="login" label="Login" type="text"
-                                v-model="model.username"></v-text-field>
-                  <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password"
-                                v-model="model.password"></v-text-field>
+                  <v-text-field
+                    append-icon="person"
+                    name="login"
+                    label="Login"
+                    type="text"
+                    v-model="model.username"
+                  ></v-text-field>
+                  <v-text-field
+                    append-icon="lock"
+                    name="password"
+                    label="Password"
+                    id="password"
+                    type="password"
+                    v-model="model.password"
+                  ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -29,36 +40,41 @@
 </template>
 
 <script>
-  export default {
-    layout: 'default',
-    data: () => ({
-      loading: false,
-      model: {
-        username: 'admin@example.com',
-        password: 'password'
-      }
-    }),
+export default {
+  layout: "default",
+  data: () => ({
+    loading: false,
+    model: {
+      username: "admin@example.com",
+      password: "password",
+    },
+  }),
 
-    methods: {
-      login() {
-        this.loading = true;
-        setTimeout(() => {
-          // TODO: direct to dashboard when signed in, else display error
-          this.$router.push('/dashboard');
-        }, 1000);
-      }
-    }
-
-  };
+  methods: {
+    async login() {
+      this.loading = true;
+      var data = await this.$axios.$post("/user/login", {
+        email: this.model.username,
+        password: this.model.password,
+      });
+      this.$store.commit("login/setRRAuth", data.auth_token);
+      // alert(data);
+      if (data.status == "success") this.$router.push("/dashboard");
+    },
+  },
+};
 </script>
 <style scoped lang="css">
-  #login {
-    height: 50%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    z-index: 0;
-  }
+#login {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: 0;
+}
+.text-center {
+  text-align: center;
+}
 </style>
