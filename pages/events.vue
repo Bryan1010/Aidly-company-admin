@@ -8,7 +8,7 @@
       <v-col>
         <v-sheet height="500">
           <v-calendar :now="today" :value="today" color="primary">
-            <template v-slot:day="{ present, past, date }">
+            <template v-slot:day="{  past, date }">
               <v-row class="fill-height">
                 <template v-if="past && tracked[date]">
                   <v-sheet
@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import Calendar from "Vuetify/es5/components/Vuetify";
+// import Calendar from "Vuetify/es5/components";
 export default {
   layout: "dashboard",
-  components: [Calendar],
+  // components: [Calendar],
   data: () => ({
     today: "2019-01-10",
     tracked: {
