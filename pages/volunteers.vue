@@ -5,7 +5,18 @@
       Volunteers
     </h4>
 
-    <v-data-table dense :items="content" :headers="headers" item-key="name" class="elevation-1" />
+    <v-data-table dense :items="content" :headers="headers" item-key="name" class="elevation-1" >
+      <template slot="items" slot-scope="props">
+          <td class="text-xs-left">{{ props.item.first_name }}</td>
+          <td class="text-xs-left">{{ props.item.last_name }}</td>
+          <td class="text-xs-left">{{ props.item.email }}</td>
+          <td class="text-xs-left">{{ props.item.zip }}</td>
+          <td class="text-xs-left">{{ props.item.mission_statement }}</td>
+        </template>
+        <v-alert slot="no-results" :value="true" color="error" icon="warning">
+          Your search for "{{ search }}" found no results.
+        </v-alert>
+    </v-data-table>
   </v-container>
 </template>
 
@@ -39,7 +50,8 @@ export default {
     this.$nextTick(async () => {
       this.$nuxt.$loading.start();
       var data = await this.$axios.$get("/company/companyusersmatches");
-      // this.content = data.users;
+      this.content = data.users;
+      console.log(this.content)
       // setTimeout(() => , 500);
       this.$nuxt.$loading.finish();
     });
