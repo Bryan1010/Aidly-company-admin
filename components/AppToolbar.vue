@@ -4,7 +4,7 @@
       <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
     </v-toolbar-title>
 
-    <v-toolbar-title>Welcome to Aidly Company Admin</v-toolbar-title>
+    <v-toolbar-title>Welcome to Aidly Non-Profit Admin</v-toolbar-title>
     <!-- <v-text-field
       flat
       solo-inverted
