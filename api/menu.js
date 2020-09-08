@@ -21,6 +21,13 @@ const Menu = [{
     icon: 'group',
     name: 'Volunteers',
     href: '/volunteers'
+  },
+  {
+    title: 'My Organization',
+    group: 'apps',
+    icon: 'edit',
+    name: 'My Organization',
+    href: '/myOrg'
   }
   // {
   //   title: 'Chat',
