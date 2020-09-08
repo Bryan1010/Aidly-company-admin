@@ -4,29 +4,49 @@
       <i class="fa fa-calendar"></i>
       Events
     </h4>
-    <v-row>
-      <v-col>
-        <v-sheet height="500">
-          <v-calendar :now="today" :value="today" color="primary">
-            <template v-slot:day="{  past, date }">
-              <v-row class="fill-height">
-                <template v-if="past && tracked[date]">
-                  <v-sheet
-                    v-for="(percent, i) in tracked[date]"
-                    :key="i"
-                    :title="category[i]"
-                    :color="colors[i]"
-                    :width="`${percent}%`"
-                    height="100%"
-                    tile
-                  ></v-sheet>
-                </template>
-              </v-row>
-            </template>
-          </v-calendar>
-        </v-sheet>
-      </v-col>
-    </v-row>
+    <v-data-table dense :items="content" :headers="headers" item-key="name" class="elevation-1" >
+      <template slot="items" slot-scope="props">
+          <td class="text-xs-left">{{ props.item.eventName }}</td>
+          <td class="text-xs-left">{{ formatDate(props.item.eventDate) }}</td>
+          <td class="text-xs-left">{{ props.item.address }}</td>
+          
+        </template>
+        <v-alert slot="no-results" :value="true" color="error" icon="warning">
+          Your search found no results.
+        </v-alert>
+    </v-data-table>
+    <br/>
+    <h4>
+      Add an Event
+    </h4>
+    <v-form>
+      <v-text-field
+          v-model="newEvent.eventName"
+          label="Event Name"
+          required
+      ></v-text-field>
+
+      <v-text-field
+          v-model="newEvent.address"
+          label="Event Address"
+          required
+      ></v-text-field>
+
+      <v-row justify="center">
+        <v-date-picker v-model="newEvent.eventDate"></v-date-picker>
+
+        <v-time-picker v-model="newEvent.time"></v-time-picker>
+      </v-row>
+
+       <v-btn
+                color="primary"
+                class=""
+                @click="addEvent"
+            >
+                Add Event
+        </v-btn>
+    </v-form> 
+
   </v-container>
 </template>
 
@@ -36,21 +56,54 @@ export default {
   layout: "dashboard",
   // components: [Calendar],
   data: () => ({
-    today: "2019-01-10",
-    tracked: {
-      "2019-01-09": [23, 45, 10],
-      "2019-01-08": [10],
-      "2019-01-07": [0, 78, 5],
-      "2019-01-06": [0, 0, 50],
-      "2019-01-05": [0, 10, 23],
-      "2019-01-04": [2, 90],
-      "2019-01-03": [10, 32],
-      "2019-01-02": [80, 10, 10],
-      "2019-01-01": [20, 25, 10],
+    picker: new Date().toISOString().substr(0, 10),
+    newEvent: {
+      eventName: '',
+      eventDate: new Date().toISOString().substr(0, 10),
+      address: '',    
+      time: null  
     },
-    colors: ["#1867c0", "#fb8c00", "#000000"],
-    category: ["Development", "Meetings", "Slacking"],
+    content: [
+      {
+        eventName: "Comunity Lunch",
+        eventDate: new Date('2020-09-22'),
+        address: "303 Windsor St, Reading, PA 19601",
+      },
+    ],
+    headers: [
+      {
+        text: "Event Name",
+        align: "start",
+        sortable: false,
+        value: "eventName",
+      },
+      { text: "Date", value: "eventDate" },
+      { text: "Location", value: "address" },
+
+    ],
   }),
+  methods: {
+    addEvent(){
+      
+      var date = new Date(this.newEvent.eventDate + ' ' + this.newEvent.time);
+      
+      console.log(date);
+      
+      this.content.push({eventName: this.newEvent.eventName,
+      eventDate: date,
+      address: this.newEvent.address});
+    },
+    formatDate(date){
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + " " + strTime;
+    }
+  }
 };
 </script>
 

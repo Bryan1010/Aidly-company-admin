@@ -14,7 +14,7 @@
           <td class="text-xs-left">{{ props.item.mission_statement }}</td>
         </template>
         <v-alert slot="no-results" :value="true" color="error" icon="warning">
-          Your search for "{{ search }}" found no results.
+          Your search for found no results.
         </v-alert>
     </v-data-table>
   </v-container>
