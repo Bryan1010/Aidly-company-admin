@@ -10,7 +10,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Vue Material Admin Template',
+    title: 'Aidly Non-Proffit Admin',
     meta: [{
         charset: 'utf-8'
       },
@@ -21,8 +21,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Vue Material Admin Template is a \n' +
-          '    Google Material Design inspired admin dashboard template built with Vue and Vuetify.'
+        content: 'Aidly'
       }
     ],
     link: [{
