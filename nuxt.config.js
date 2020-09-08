@@ -10,7 +10,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Aidly Non-Proffit Admin',
+    title: 'Aidly Non-Profit Admin',
     meta: [{
         charset: 'utf-8'
       },
