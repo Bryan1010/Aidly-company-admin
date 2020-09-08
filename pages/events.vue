@@ -65,7 +65,7 @@ export default {
     },
     content: [
       {
-        eventName: "Comunity Lunch",
+        eventName: "Community Lunch",
         eventDate: new Date('2020-09-22'),
         address: "303 Windsor St, Reading, PA 19601",
       },
